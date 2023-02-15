@@ -1,0 +1,93 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 100vw;
+	background-color: #333;
+}
+
+.wrapper {
+	width: 400px;
+	background-color: aliceblue;
+	box-shadow: 0 0 5px white;
+	border-radius: 8px;
+	overflow: hidden;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.top {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: rgb(119, 202, 98);
+}
+
+h1 {
+	padding: 10px 0;
+	color: white;
+}
+
+.top p {
+	padding: 10px 0;
+	font-weight: 700;
+	color: white;
+}
+
+.bottom {
+	position: relative;
+	padding: 40px 20px;
+}
+
+.bottom input {
+	width: 100%;
+	height: 35px;
+    border: none;
+    box-shadow: inset 0 0 3px black;
+}
+
+.bottom label {
+	display: block;
+	margin: 10px 0;
+}
+
+.bottom select {
+	width: 100%;
+	height: 35px;
+}
+
+.bottom button {
+	display: block;
+	margin: 20px auto;
+	height: 30px;
+	width: 60%;
+	background-color: rgb(119, 202, 98);
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.bottom button:hover {
+	background-color: #117e1a;
+	color: white;
+}
+
+.error {
+    display: none;
+	text-align: center;
+    color: tomato;
+}
+
+.cost-info {
+   text-align: center;
+}
+
