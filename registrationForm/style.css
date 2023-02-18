@@ -40,6 +40,7 @@ z-index: -1;
 }
 
 h1 {
+    text-align: center;
     margin: 20px auto;
     color: whitesmoke;
 }
@@ -68,6 +69,12 @@ input {
 
 .error-text {
     color: aquamarine;
+    visibility: hidden;
+    
+}
+
+.form-box.error input {
+background-color: rgba(255, 0, 0, 0.3);
 }
 
 .control-buttons {
@@ -138,7 +145,7 @@ transition: left 0.4s;
 
 .popup {
     position: absolute;
-    top: 0;
+    top: -30%;
     left: 50%;
     width: 500px;
     transform: translateX(-50%);
@@ -149,6 +156,7 @@ transition: left 0.4s;
     background-color: whitesmoke;
     border: 2px solid rgb(187, 28, 28);
     border-radius: 15px;
+    transition: top 0.5s,;
 }
 
 .popup p {
@@ -165,4 +173,12 @@ transition: left 0.4s;
     border-radius: 8px;
     color: rgb(0, 0, 0);
     cursor: pointer;
+}
+
+.show-popup {
+    top: 150px;
+}
+
+.hide-popup {
+    visibility: hidden;
 }
