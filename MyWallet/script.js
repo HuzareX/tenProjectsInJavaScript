@@ -66,7 +66,7 @@ const createNewTransaction = () => {
 		: expensesArea.append(newTransaction) && newTransaction.classList.add('expense')
 
 	moneyArr.push(parseFloat(transactionAmount.value))
-
+	countMoney(moneyArr)
 	closePanel()
 	ID++
 	clearInputs()
@@ -89,26 +89,13 @@ const checkCategory = transaction => {
 			break
 	}
 
-	// <option value="income">[ + ] Przychód</option>
-	// <option value="shopping">[ - ] Zakupy</option>
-	// <option value="food">[ - ] Jedzenie</option>
-	// <option value="cinema">[ - ] Kino</option>
+}
 
-	//      <div class="transaction" id="1">
-	//     <p class="transaction-name"><i class="fas fa-cart-arrow-down"></i> Zakupy</p>
-	//     <p class="transaction-amount">-400zł <button class="delete"><i
-	//                 class="fas fa-times"></i></button></p>
-	// </div>
-	// <div class="transaction" id="2">
-	//     <p class="transaction-name"><i class="fas fa-hamburger"></i> Jedzenie</p>
-	//     <p class="transaction-amount">-100zł <button class="delete"><i
-	//                 class="fas fa-times"></i></button></p>
-	// </div>
-	// <div class="transaction" id="3">
-	//     <p class="transaction-name"><i class="fas fa-film"></i> Kino</p>
-	//     <p class="transaction-amount">-50zł <button class="delete"><i class="fas fa-times"></i></button>
-	//     </p>
-	// </div>
+
+const countMoney = money => {
+	const newMoney = money.reduce((a, b) => a + b)
+	availableMoney.textContent = `${newMoney} zł`
+	console.log(newMoney);
 }
 
 saveBtn.addEventListener('click', checkForm)
