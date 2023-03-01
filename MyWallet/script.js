@@ -62,8 +62,8 @@ const createNewTransaction = () => {
     `
 
 	transactionAmount.value > 0
-		? incomeArea.append(newTransaction) && newTransaction.classList.add('income')
-		: expensesArea.append(newTransaction) && newTransaction.classList.add('expense')
+		? incomeArea.appendChild(newTransaction) && newTransaction.classList.add('income')
+		: expensesArea.appendChild(newTransaction) && newTransaction.classList.add('expense')
 
 	moneyArr.push(parseFloat(transactionAmount.value))
 	countMoney(moneyArr)
@@ -94,10 +94,49 @@ const checkCategory = transaction => {
 
 const countMoney = money => {
 	const newMoney = money.reduce((a, b) => a + b)
-	availableMoney.textContent = `${newMoney} zł`
+	availableMoney.textContent = `${newMoney}zł`
 	console.log(newMoney);
 }
 
+
+const deleteTransaction = id => {
+	const transactionToDelete = document.getElementById(id)
+	const transactionAmount = parseFloat(transactionToDelete.childNodes[3].innerText)
+	const indexOfTransaction = moneyArr.indexOf(transactionAmount)
+
+	moneyArr.splice(indexOfTransaction, 1)
+
+
+	transactionToDelete.classList.contains('income') ? incomeArea.removeChild(transactionToDelete) : expensesArea.removeChild(transactionToDelete)
+
+	countMoney(moneyArr)
+
+}
+
+const deleteAllTransaction = () => {
+	expensesArea.innerHTML = `<h3>Wydatki:</h3>`
+	incomeArea.innerHTML = `<h3>Przychód:</h3>`
+	moneyArr = [0]
+	availableMoney.textContent = `0zł`
+}
+
+const changeStyleToLight = () => {
+	root.style.setProperty('--first-color', '#F9F9F9')
+	root.style.setProperty('--second-color', '#14161F')
+	root.style.setProperty('--border-color', 'rgba(0, 0, 0, .2)')
+
+}
+
+const changeStyleToDark = () => {
+	root.style.setProperty('--first-color', '#14161F')
+	root.style.setProperty('--second-color', '#F9F9F9')
+	root.style.setProperty('--border-color', 'rgba(255, 255, 255, .4)')
+}
+
+
+lightBtn.addEventListener('click', changeStyleToLight)
+darkBtn.addEventListener('click', changeStyleToDark)
+deleteAllBtn.addEventListener('click', deleteAllTransaction)
 saveBtn.addEventListener('click', checkForm)
 cancelBtn.addEventListener('click', closePanel)
 addTransactionBtn.addEventListener('click', showPanel)
